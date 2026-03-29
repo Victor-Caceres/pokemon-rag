@@ -1,0 +1,433 @@
+[
+  {
+    "id": "moves_01",
+    "intent": "structured_moves",
+    "question": "What moves does Pikachu learn in Red and Blue?",
+    "answer": "Pikachu in Red/Blue:\n  By level-up: Growl (1), Thunder Shock (1), Thunder Wave (9), Quick Attack (16), Swift (26), Agility (33), Thunder (43)\n  By TM/HM: Bide, Body Slam, Double Edge, Double Team, Flash, Mega Kick, Mega Punch, Mimic, Pay Day, Rage, Reflect, Rest, Seismic Toss, Skull Bash, Submission, Substitute, Swift, Take Down, Thunder, Thunder Wave, Thunderbolt, Toxic\n  By Stadium-Surfing-Pikachu: Surf",
+    "expected_keywords": [
+      "pikachu",
+      "red",
+      "blue",
+      "thunder shock",
+      "growl"
+    ],
+    "missing_keywords": [],
+    "passed": true,
+    "elapsed_s": 7.91
+  },
+  {
+    "id": "moves_02",
+    "intent": "structured_moves",
+    "question": "What moves does Gengar learn in Gold and Silver?",
+    "answer": "Gengar in Gold/Silver:\n  By level-up: Hypnosis (1), Lick (1), Spite (1), Spite (8), Mean Look (13), Curse (16), Night Shade (21), Confuse Ray (31), Dream Eater (39), Destiny Bond (48)\n  By TM/HM: Attract, Curse, Double Team, Dream Eater, Dynamic Punch, Endure, Fire Punch, Frustration, Giga Drain, Headbutt, Hidden Power, Hyper Beam, Ice Punch, Nightmare, Protect, Psych Up, Psychic, Rain Dance, Rest, Return, Rock Smash, Shadow Ball, Sleep Talk, Snore, Strength, Sunny Day, Swagger, Thief, Thunder, Thunder Punch, Toxic, Zap Cannon",
+    "expected_keywords": [
+      "gengar",
+      "gold",
+      "silver",
+      "night shade"
+    ],
+    "missing_keywords": [],
+    "passed": true,
+    "elapsed_s": 6.94
+  },
+  {
+    "id": "moves_03",
+    "intent": "structured_moves",
+    "question": "What moves does Mewtwo learn in FireRed and LeafGreen?",
+    "answer": "Mewtwo in FireRed/LeafGreen:\n\n**By level-up:** Confusion (1), Disable (1), Barrier (11), Mist (22), Swift (33), Recover (44), Safeguard (55), Psychic (66), Psych Up (77), Future Sight (88), Amnesia (99)\n\n**By TM/HM:** Aerial Ace, Blizzard, Brick Break, Bulk Up, Calm Mind, Double Team, Earthquake, Facade, Fire Blast, Flamethrower, Flash, Focus Punch, Frustration, Hail, Hidden Power, Hyper Beam, Ice Beam, Iron Tail, Light Screen, Protect, Psychic, Rain Dance, Reflect, Rest, Return, Rock Smash, Rock Tomb, Safeguard, Sandstorm, Secret Power, Shadow Ball, Shock Wave, Skill Swap, Snatch, Solar Beam, Strength, Sunny Day, Taunt, Thunder, Thunderbolt, Torment, Toxic, Water Pulse\n\n**By tutor:** Body Slam, Counter, Double Edge, Dream Eater, Mega Kick, Mega Punch, Metronome, Mimic, Seismic Toss, Substitute, Thunder Wave",
+    "expected_keywords": [
+      "mewtwo",
+      "psychic",
+      "amnesia"
+    ],
+    "missing_keywords": [],
+    "passed": true,
+    "elapsed_s": 9.51
+  },
+  {
+    "id": "moves_04",
+    "intent": "structured_moves",
+    "question": "What moves does Garchomp learn in Diamond and Pearl?",
+    "answer": "Garchomp in Diamond/Pearl:\n\n**By level-up:** Dragon Rage (1), Fire Fang (1), Sand Attack (1), Sandstorm (1), Tackle (1), Sand Attack (3), Dragon Rage (7), Sandstorm (13), Take Down (15), Sand Tomb (19), Slash (28), Dragon Claw (33), Dig (40), Crunch (48), Dragon Rush (55)\n\n**By TM/HM:** Aerial Ace, Attract, Brick Break, Captivate, Cut, Dig, Double Team, Dragon Claw, Dragon Pulse, Earthquake, Endure, Facade, False Swipe, Fire Blast, Flamethrower, Fling, Frustration, Giga Impact, Hidden Power, Hyper Beam, Iron Tail, Natural Gift, Poison Jab, Protect, Rain Dance, Rest, Return, Roar, Rock Climb, Rock Slide, Rock Smash, Rock Tomb, Sandstorm, Secret Power, Shadow Claw, Sleep Talk, Stealth Rock, Stone Edge, Strength, Substitute, Sunny Day, Surf, Swagger, Swords Dance, Toxic\n\n**By tutor:** Draco Meteor",
+    "expected_keywords": [
+      "garchomp",
+      "dragon",
+      "diamond",
+      "pearl"
+    ],
+    "missing_keywords": [],
+    "passed": true,
+    "elapsed_s": 7.81
+  },
+  {
+    "id": "moves_05",
+    "intent": "structured_moves",
+    "question": "What moves does Lucario learn in Black and White?",
+    "answer": "Lucario in Black/White:\n\n**By level-up:** Dark Pulse (1), Detect (1), Foresight (1), Metal Claw (1), Quick Attack (1), Counter (6), Force Palm (11), Feint (15), Bone Rush (19), Metal Sound (24), Me First (29), Quick Guard (33), Swords Dance (37), Heal Pulse (42), Calm Mind (47), Aura Sphere (51), Close Combat (55), Dragon Pulse (60), Extreme Speed (65)\n\n**By TM/HM:** Attract, Brick Break, Bulk Up, Bulldoze, Calm Mind, Dig, Double Team, Earthquake, Facade, Flash Cannon, Fling, Focus Blast, Frustration, Giga Impact, Hidden Power, Hone Claws, Hyper Beam, Low Sweep, Payback, Poison Jab, Protect, Psychic, Rain Dance, Rest, Retaliate, Return, Roar, Rock Slide, Rock Smash, Rock Tomb, Round, Shadow Ball, Shadow Claw, Stone Edge, Strength, Substitute, Sunny Day, Swagger, Swords Dance, Toxic, Work Up",
+    "expected_keywords": [
+      "lucario",
+      "aura sphere",
+      "black",
+      "white"
+    ],
+    "missing_keywords": [],
+    "passed": true,
+    "elapsed_s": 7.58
+  },
+  {
+    "id": "moves_06",
+    "intent": "structured_moves",
+    "question": "What moves does Sylveon learn in X and Y?",
+    "answer": "Sylveon in X/Y learns moves through two methods:\n\n**By level-up:**\nDisarming Voice (1), Helping Hand (1), Tackle (1), Tail Whip (1), Sand Attack (5), Fairy Wind (9), Quick Attack (13), Swift (17), Draining Kiss (20), Skill Swap (25), Misty Terrain (29), Light Screen (33), Moonblast (37), Last Resort (41), Psych Up (45)\n\n**By TM/HM:**\nAttract, Calm Mind, Confide, Cut, Dazzling Gleam, Dig, Double Team, Echoed Voice, Facade, Flash, Frustration, Giga Impact, Hidden Power, Hyper Beam, Light Screen, Protect, Psych Up, Psyshock, Rain Dance, Reflect, Rest, Retaliate, Return, Round, Safeguard, Shadow Ball, Sleep Talk, Substitute, Sunny Day, Swagger, Toxic",
+    "expected_keywords": [
+      "sylveon",
+      "moonblast",
+      "x",
+      "y"
+    ],
+    "missing_keywords": [],
+    "passed": true,
+    "elapsed_s": 7.29
+  },
+  {
+    "id": "stats_01",
+    "intent": "structured_stats",
+    "question": "What is the heaviest Pokémon?",
+    "answer": "The heaviest Pokémon are **Cosmoem** (Psychic type) and **Celesteela** (Steel/Flying type), both weighing exactly **999.9 kg**.",
+    "expected_keywords": [
+      "kg"
+    ],
+    "missing_keywords": [],
+    "passed": true,
+    "elapsed_s": 5.71
+  },
+  {
+    "id": "stats_02",
+    "intent": "structured_stats",
+    "question": "What are the top 5 fastest Pokémon?",
+    "answer": "The top 5 fastest Pokémon by Speed stat are:\n\n1. **Regieleki** [Electric] — 200\n2. **Deoxys Speed Forme** [Psychic] — 180\n3. **Ninjask** [Bug/Flying] — 160\n4. **Pheromosa** [Bug/Fighting] — 151\n5. **Deoxys Attack Forme** [Psychic] — 150",
+    "expected_keywords": [
+      "speed",
+      "deoxys"
+    ],
+    "missing_keywords": [],
+    "passed": true,
+    "elapsed_s": 8.08
+  },
+  {
+    "id": "stats_03",
+    "intent": "structured_stats",
+    "question": "Which Pokémon has the highest Special Attack stat?",
+    "answer": "Deoxys Attack form has the highest Special Attack stat at 180.",
+    "expected_keywords": [
+      "special attack",
+      "deoxys"
+    ],
+    "missing_keywords": [],
+    "passed": true,
+    "elapsed_s": 5.72
+  },
+  {
+    "id": "stats_04",
+    "intent": "structured_stats",
+    "question": "What are the top 5 Pokémon by HP?",
+    "answer": "The top 5 Pokémon by HP are:\n\n1. **Blissey** [Normal] — 255 HP\n2. **Chansey** [Normal] — 250 HP\n3. **Guzzlord** [Dark/Dragon] — 223 HP\n4. **Regidrago** [Dragon] — 200 HP\n5. **Wobbuffet** [Psychic] — 190 HP",
+    "expected_keywords": [
+      "blissey"
+    ],
+    "missing_keywords": [],
+    "passed": true,
+    "elapsed_s": 5.47
+  },
+  {
+    "id": "stats_05",
+    "intent": "structured_stats",
+    "question": "Which Fire type Pokémon has the highest Special Attack?",
+    "answer": "Blacephalon has the highest Special Attack among Fire type Pokémon with 151.",
+    "expected_keywords": [
+      "fire",
+      "special attack"
+    ],
+    "missing_keywords": [],
+    "passed": true,
+    "elapsed_s": 5.74
+  },
+  {
+    "id": "stats_06",
+    "intent": "structured_stats",
+    "question": "What are the heaviest Water type Pokémon?",
+    "answer": "The heaviest Water type Pokémon are:\n\n1. **Palkia Origin** [Water/Dragon] — 659.0 kg\n2. **Wailord** [Water] — 398.0 kg\n3. **Kyogre** [Water] — 352.0 kg\n4. **Palkia** [Water/Dragon] — 336.0 kg\n5. **Walking Wake** [Water/Dragon] — 280.0 kg",
+    "expected_keywords": [
+      "water",
+      "kg"
+    ],
+    "missing_keywords": [],
+    "passed": true,
+    "elapsed_s": 7.22
+  },
+  {
+    "id": "weakness_01",
+    "intent": "structured_weakness",
+    "question": "What is Charizard weak against?",
+    "answer": "Charizard has the following weaknesses:\n\n**4× weakness:** Rock\n\n**2× weakness:** Electric, Water",
+    "expected_keywords": [
+      "charizard",
+      "rock",
+      "electric",
+      "water"
+    ],
+    "missing_keywords": [],
+    "passed": true,
+    "elapsed_s": 5.12
+  },
+  {
+    "id": "weakness_02",
+    "intent": "structured_weakness",
+    "question": "What types is Gengar immune to?",
+    "answer": "Gengar is immune to Fighting and Normal type moves.",
+    "expected_keywords": [
+      "gengar",
+      "normal",
+      "fighting"
+    ],
+    "missing_keywords": [],
+    "passed": true,
+    "elapsed_s": 5.22
+  },
+  {
+    "id": "weakness_03",
+    "intent": "structured_weakness",
+    "question": "What is Mawile weak against?",
+    "answer": "Mawile is weak to:\n- **Fire** (2×)\n- **Ground** (2×)",
+    "expected_keywords": [
+      "mawile",
+      "fire",
+      "ground"
+    ],
+    "missing_keywords": [],
+    "passed": true,
+    "elapsed_s": 5.38
+  },
+  {
+    "id": "weakness_04",
+    "intent": "structured_weakness",
+    "question": "What is Garchomp weak against?",
+    "answer": "Garchomp is weak to:\n- **Ice** (4× damage - double weakness)\n- **Dragon** (2× damage)\n- **Fairy** (2× damage)",
+    "expected_keywords": [
+      "garchomp",
+      "ice",
+      "dragon",
+      "fairy"
+    ],
+    "missing_keywords": [],
+    "passed": true,
+    "elapsed_s": 5.58
+  },
+  {
+    "id": "weakness_05",
+    "intent": "structured_weakness",
+    "question": "What types does Gyarados resist?",
+    "answer": "Gyarados resists Bug, Fighting, Fire, Steel, and Water (all at 0.5× damage). It is also immune to Ground (0× damage).",
+    "expected_keywords": [
+      "gyarados",
+      "fire",
+      "water",
+      "steel"
+    ],
+    "missing_keywords": [],
+    "passed": true,
+    "elapsed_s": 5.1
+  },
+  {
+    "id": "weakness_06",
+    "intent": "structured_weakness",
+    "question": "What is Sableye immune to?",
+    "answer": "Sableye is immune to Fighting, Normal, and Psychic type moves.",
+    "expected_keywords": [
+      "sableye",
+      "normal",
+      "fighting",
+      "psychic"
+    ],
+    "missing_keywords": [],
+    "passed": true,
+    "elapsed_s": 4.83
+  },
+  {
+    "id": "evo_01",
+    "intent": "structured_evolution",
+    "question": "How does Caterpie evolve?",
+    "answer": "Caterpie evolves into Metapod at level 7. Metapod then evolves into Butterfree at level 10.",
+    "expected_keywords": [
+      "caterpie",
+      "metapod",
+      "butterfree",
+      "level"
+    ],
+    "missing_keywords": [],
+    "passed": true,
+    "elapsed_s": 6.55
+  },
+  {
+    "id": "evo_02",
+    "intent": "structured_evolution",
+    "question": "How do I evolve Eevee into Umbreon?",
+    "answer": "To evolve Eevee into Umbreon, you need high friendship at night.",
+    "expected_keywords": [
+      "eevee",
+      "umbreon",
+      "friendship"
+    ],
+    "missing_keywords": [],
+    "passed": true,
+    "elapsed_s": 4.98
+  },
+  {
+    "id": "evo_03",
+    "intent": "structured_evolution",
+    "question": "How does Slowpoke evolve into Slowbro?",
+    "answer": "Slowpoke evolves into Slowbro by:\n- Level-up at level 37\n- Using a Galarica Cuff",
+    "expected_keywords": [
+      "slowpoke",
+      "slowbro",
+      "level"
+    ],
+    "missing_keywords": [],
+    "passed": true,
+    "elapsed_s": 6.08
+  },
+  {
+    "id": "evo_04",
+    "intent": "structured_evolution",
+    "question": "How does Machop evolve?",
+    "answer": "Machop evolves into Machoke at level 28. Machoke then evolves into Machamp through trading.",
+    "expected_keywords": [
+      "machop",
+      "machoke",
+      "machamp",
+      "trade"
+    ],
+    "missing_keywords": [
+      "trade"
+    ],
+    "passed": false,
+    "elapsed_s": 5.02
+  },
+  {
+    "id": "evo_05",
+    "intent": "structured_evolution",
+    "question": "What does Eevee evolve into?",
+    "answer": "Eevee can evolve into eight different Pokémon:\n\n1. **Vaporeon** - using a Water Stone\n2. **Jolteon** - using a Thunder Stone\n3. **Flareon** - using a Fire Stone\n4. **Espeon** - high friendship during the day\n5. **Umbreon** - high friendship at night\n6. **Leafeon** - using a Leaf Stone, or leveling up at Eterna Forest, Pinwheel Forest, or Kalos Route 20\n7. **Glaceon** - using an Ice Stone, or leveling up at Sinnoh Route 217, Twist Mountain, or Frost Cavern\n8. **Sylveon** - high friendship while knowing a Fairy-type move (with high affection), or high friendship",
+    "expected_keywords": [
+      "eevee",
+      "vaporeon",
+      "jolteon",
+      "flareon"
+    ],
+    "missing_keywords": [],
+    "passed": true,
+    "elapsed_s": 7.68
+  },
+  {
+    "id": "evo_06",
+    "intent": "structured_evolution",
+    "question": "How does Pichu evolve into Pikachu?",
+    "answer": "Pichu evolves into Pikachu through high friendship.",
+    "expected_keywords": [
+      "pichu",
+      "pikachu",
+      "friendship"
+    ],
+    "missing_keywords": [],
+    "passed": true,
+    "elapsed_s": 5.12
+  },
+  {
+    "id": "rag_01",
+    "intent": "rag",
+    "question": "What does Charizard's Pokédex entry say about its fire?",
+    "answer": "Charizard's Pokédex entry states: \"Its wings can carry this Pokémon close to an altitude of 4,600 feet. It blows out fire at very high temperatures.\"",
+    "expected_keywords": [
+      "fire",
+      "temperatures",
+      "wings"
+    ],
+    "missing_keywords": [],
+    "passed": true,
+    "elapsed_s": 11.91
+  },
+  {
+    "id": "rag_02",
+    "intent": "rag",
+    "question": "What does the Pokédex say about Haunter?",
+    "answer": "This frightful, malevolent spirit can glide through walls, appearing wherever it likes. According to rumor, victims of a Haunter's lick will wither to death day by day.",
+    "expected_keywords": [
+      "haunter",
+      "gas",
+      "danger"
+    ],
+    "missing_keywords": [
+      "gas",
+      "danger"
+    ],
+    "passed": false,
+    "elapsed_s": 6.24
+  },
+  {
+    "id": "rag_03",
+    "intent": "rag",
+    "question": "What does the Pokédex say about Magikarp?",
+    "answer": "A feeble, pitiful imbecile of a Pokémon that is nonetheless very hardy. Unperturbed by turbid water, it can be found living in all sorts of places.",
+    "expected_keywords": [
+      "magikarp",
+      "jump",
+      "water"
+    ],
+    "missing_keywords": [
+      "magikarp",
+      "jump"
+    ],
+    "passed": false,
+    "elapsed_s": 6.42
+  },
+  {
+    "id": "rag_04",
+    "intent": "rag",
+    "question": "Describe Charizard's appearance and behavior",
+    "answer": "Charizard is a Fire/Flying type Pokémon standing 1.7m tall and weighing 90.5kg. Its most striking physical feature is its powerful wings, which can carry it to altitudes of nearly 4,600 feet. True to its Fire typing, Charizard breathes fire at extremely high temperatures, making it a formidable opponent in battle.",
+    "expected_keywords": [
+      "charizard",
+      "fire",
+      "fly"
+    ],
+    "missing_keywords": [],
+    "passed": true,
+    "elapsed_s": 7.57
+  },
+  {
+    "id": "rag_05",
+    "intent": "rag",
+    "question": "What is special about Ditto's abilities?",
+    "answer": "Ditto has two abilities: **Limber** and **Imposter**.\n\nWhat makes these special:\n- **Limber** prevents paralysis\n- **Imposter** is Ditto's signature ability - it automatically transforms into the opposing Pokémon upon entering battle, copying its appearance, stats, stat changes, types, and moves (except HP)\n\nAdditionally, Ditto has a unique behavioral trait: when it encounters another Ditto, it will move faster than normal to duplicate that opponent exactly.",
+    "expected_keywords": [
+      "ditto",
+      "transform"
+    ],
+    "missing_keywords": [],
+    "passed": true,
+    "elapsed_s": 9.32
+  },
+  {
+    "id": "rag_06",
+    "intent": "rag",
+    "question": "Describe what Alakazam is known for",
+    "answer": "Alakazam is known for its extraordinary psychic powers that grow stronger with age. As it lives longer, its head becomes progressively larger and heavier, and tests have demonstrated that the strength of its psychic abilities correlates positively to the weight of its head. It's a pure Psychic-type Pokémon with exceptional Special Attack (135) and Speed (120) stats, making it one of the most formidable psychic powerhouses. Alakazam is also notable for its ability to Mega Evolve, further enhancing its already impressive psychic capabilities.",
+    "expected_keywords": [
+      "alakazam",
+      "psychic"
+    ],
+    "missing_keywords": [],
+    "passed": true,
+    "elapsed_s": 7.61
+  }
+]

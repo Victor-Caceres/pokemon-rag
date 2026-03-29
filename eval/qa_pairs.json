@@ -1,0 +1,186 @@
+[
+  {
+    "id": "moves_01",
+    "intent": "structured_moves",
+    "question": "What moves does Pikachu learn in Red and Blue?",
+    "expected_keywords": ["pikachu", "red", "blue", "thunder shock", "growl"]
+  },
+  {
+    "id": "moves_02",
+    "intent": "structured_moves",
+    "question": "What moves does Gengar learn in Gold and Silver?",
+    "expected_keywords": ["gengar", "gold", "silver", "night shade"]
+  },
+  {
+    "id": "moves_03",
+    "intent": "structured_moves",
+    "question": "What moves does Mewtwo learn in FireRed and LeafGreen?",
+    "expected_keywords": ["mewtwo", "psychic", "amnesia"]
+  },
+  {
+    "id": "moves_04",
+    "intent": "structured_moves",
+    "question": "What moves does Garchomp learn in Diamond and Pearl?",
+    "expected_keywords": ["garchomp", "dragon", "diamond", "pearl"]
+  },
+  {
+    "id": "moves_05",
+    "intent": "structured_moves",
+    "question": "What moves does Lucario learn in Black and White?",
+    "expected_keywords": ["lucario", "aura sphere", "black", "white"]
+  },
+  {
+    "id": "moves_06",
+    "intent": "structured_moves",
+    "question": "What moves does Sylveon learn in X and Y?",
+    "expected_keywords": ["sylveon", "moonblast", "x", "y"]
+  },
+
+  {
+    "id": "stats_01",
+    "intent": "structured_stats",
+    "question": "What is the heaviest Pokémon?",
+    "expected_keywords": ["kg"]
+  },
+  {
+    "id": "stats_02",
+    "intent": "structured_stats",
+    "question": "What are the top 5 fastest Pokémon?",
+    "expected_keywords": ["speed", "deoxys"]
+  },
+  {
+    "id": "stats_03",
+    "intent": "structured_stats",
+    "question": "Which Pokémon has the highest Special Attack stat?",
+    "expected_keywords": ["special attack", "deoxys"]
+  },
+  {
+    "id": "stats_04",
+    "intent": "structured_stats",
+    "question": "What are the top 5 Pokémon by HP?",
+    "expected_keywords": ["blissey"]
+  },
+  {
+    "id": "stats_05",
+    "intent": "structured_stats",
+    "question": "Which Fire type Pokémon has the highest Special Attack?",
+    "expected_keywords": ["fire", "special attack"]
+  },
+  {
+    "id": "stats_06",
+    "intent": "structured_stats",
+    "question": "What are the heaviest Water type Pokémon?",
+    "expected_keywords": ["water", "kg"]
+  },
+
+  {
+    "id": "weakness_01",
+    "intent": "structured_weakness",
+    "question": "What is Charizard weak against?",
+    "expected_keywords": ["charizard", "rock", "electric", "water"]
+  },
+  {
+    "id": "weakness_02",
+    "intent": "structured_weakness",
+    "question": "What types is Gengar immune to?",
+    "expected_keywords": ["gengar", "normal", "fighting"]
+  },
+  {
+    "id": "weakness_03",
+    "intent": "structured_weakness",
+    "question": "What is Mawile weak against?",
+    "expected_keywords": ["mawile", "fire", "ground"]
+  },
+  {
+    "id": "weakness_04",
+    "intent": "structured_weakness",
+    "question": "What is Garchomp weak against?",
+    "expected_keywords": ["garchomp", "ice", "dragon", "fairy"]
+  },
+  {
+    "id": "weakness_05",
+    "intent": "structured_weakness",
+    "question": "What types does Gyarados resist?",
+    "expected_keywords": ["gyarados", "fire", "water", "steel"]
+  },
+  {
+    "id": "weakness_06",
+    "intent": "structured_weakness",
+    "question": "What is Sableye immune to?",
+    "expected_keywords": ["sableye", "normal", "fighting", "psychic"]
+  },
+
+  {
+    "id": "evo_01",
+    "intent": "structured_evolution",
+    "question": "How does Caterpie evolve?",
+    "expected_keywords": ["caterpie", "metapod", "butterfree", "level"]
+  },
+  {
+    "id": "evo_02",
+    "intent": "structured_evolution",
+    "question": "How do I evolve Eevee into Umbreon?",
+    "expected_keywords": ["eevee", "umbreon", "friendship"]
+  },
+  {
+    "id": "evo_03",
+    "intent": "structured_evolution",
+    "question": "How does Slowpoke evolve into Slowbro?",
+    "expected_keywords": ["slowpoke", "slowbro", "level"]
+  },
+  {
+    "id": "evo_04",
+    "intent": "structured_evolution",
+    "question": "How does Machop evolve?",
+    "expected_keywords": ["machop", "machoke", "machamp", "trade"]
+  },
+  {
+    "id": "evo_05",
+    "intent": "structured_evolution",
+    "question": "What does Eevee evolve into?",
+    "expected_keywords": ["eevee", "vaporeon", "jolteon", "flareon"]
+  },
+  {
+    "id": "evo_06",
+    "intent": "structured_evolution",
+    "question": "How does Pichu evolve into Pikachu?",
+    "expected_keywords": ["pichu", "pikachu", "friendship"]
+  },
+
+  {
+    "id": "rag_01",
+    "intent": "rag",
+    "question": "What does Charizard's Pokédex entry say about its fire?",
+    "expected_keywords": ["fire", "temperatures", "wings"]
+  },
+  {
+    "id": "rag_02",
+    "intent": "rag",
+    "question": "What does the Pokédex say about Haunter?",
+    "expected_keywords": ["haunter", "gas", "danger"]
+  },
+  {
+    "id": "rag_03",
+    "intent": "rag",
+    "question": "What does the Pokédex say about Magikarp?",
+    "expected_keywords": ["magikarp", "jump", "water"]
+  },
+  {
+    "id": "rag_04",
+    "intent": "rag",
+    "question": "Describe Charizard's appearance and behavior",
+    "expected_keywords": ["charizard", "fire", "fly"]
+  },
+  {
+    "id": "rag_05",
+    "intent": "rag",
+    "question": "What is special about Ditto's abilities?",
+    "expected_keywords": ["ditto", "transform"]
+  },
+  {
+    "id": "rag_06",
+    "intent": "rag",
+    "question": "Describe what Alakazam is known for",
+    "expected_keywords": ["alakazam", "psychic"]
+  }
+]
