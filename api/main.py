@@ -40,7 +40,7 @@ app = FastAPI(title="Pokémon RAG API", version="1.0.0")
 
 ALLOWED_ORIGINS = [
     "http://localhost:5173",                   # local Vite dev server
-    "https://pokemon-rag.vercel.app",          # production frontend (update after Vercel deploy)
+    "https://pokemon-rag.vercel.app",          # production frontend
     "https://pokemon-rag.onrender.com",        # Render backend (for same-origin health checks)
 ]
 
