@@ -171,7 +171,9 @@ def get_moves(pokemon_name: str, version_group: str | None = None, form_label: s
         lines = [f"{poke_d} in {_vg_display(version_group)}:"]
         for method in sorted(vg_moves.get(version_group, {}), key=_morder):
             lines.append(_section(method, vg_moves[version_group][method]))
-        return "\n".join(lines)
+        result = "\n".join(lines)
+        print(f"[DEBUG get_moves] first 500 chars:\n{result[:500]!r}")
+        return result
 
     lines = [f"{poke_d}'s moves by game:", ""]
     for fp in ordered_fps:
@@ -182,7 +184,9 @@ def get_moves(pokemon_name: str, version_group: str | None = None, form_label: s
             lines.append(_section(method, vg_moves[vgs[0]][method]))
         lines.append("")
 
-    return "\n".join(lines).rstrip()
+    result = "\n".join(lines).rstrip()
+    print(f"[DEBUG get_moves] first 500 chars:\n{result[:500]!r}")
+    return result
 
 
 # ── 1b. move info ─────────────────────────────────────────────────────────────
