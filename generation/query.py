@@ -168,7 +168,7 @@ def run_query(question: str, selected_variant: str | None = None) -> str:
     elif intent == "structured_moves":
         if not pokemon_name:
             return "Please specify which Pokémon you'd like move information for."
-        context = get_moves(pokemon_name, version_group, form_label=form_label, display_name=selected_variant)
+        return get_moves(pokemon_name, version_group, form_label=form_label, display_name=selected_variant)
 
     elif intent == "structured_stats":
         stat        = _extract_stat(question)
