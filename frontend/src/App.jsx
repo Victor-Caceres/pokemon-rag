@@ -6,12 +6,13 @@ const API_URL = `${import.meta.env.VITE_API_URL || 'http://localhost:8000'}/ask`
 // ── intent badge config ───────────────────────────────────────────────────────
 
 const INTENT_STYLES = {
-  structured_moves:     'bg-blue-100 text-blue-700',
-  structured_stats:     'bg-green-100 text-green-700',
-  structured_weakness:  'bg-red-100 text-red-700',
-  structured_evolution: 'bg-purple-100 text-purple-700',
-  rag:                  'bg-orange-100 text-orange-700',
-  hybrid:               'bg-teal-100 text-teal-700',
+  structured_moves:        'bg-blue-100 text-blue-700',
+  structured_stats:        'bg-green-100 text-green-700',
+  structured_weakness:     'bg-red-100 text-red-700',
+  structured_evolution:    'bg-purple-100 text-purple-700',
+  rag:                     'bg-orange-100 text-orange-700',
+  hybrid:                  'bg-teal-100 text-teal-700',
+  hybrid_effectiveness:    'bg-teal-100 text-teal-700',
 }
 
 function IntentBadge({ intent }) {

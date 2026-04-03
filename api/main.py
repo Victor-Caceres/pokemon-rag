@@ -124,8 +124,10 @@ def ask(body: AskRequest):
                         selected_variant = matched
                     break
 
-        # Variant conflict check — skip if variant is already known
-        if pokemon_name and not selected_variant:
+        # Variant conflict check — skip if variant is already known or not relevant
+        # hybrid_effectiveness operates on two separate Pokémon (attacker/defender),
+        # so variant conflict detection on pokemon_name is not applicable.
+        if pokemon_name and not selected_variant and intent != "hybrid_effectiveness":
             variants = detect_variant_conflict(pokemon_name)
             if variants:
                 return AskResponse(

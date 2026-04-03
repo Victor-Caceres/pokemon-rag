@@ -8,6 +8,7 @@ import logging
 
 from retrieval.classify_intent import classify_intent
 from retrieval.retrieve_structured import (
+    get_effectiveness_moves,
     get_evolution,
     get_move_info,
     get_move_learners,
@@ -190,6 +191,22 @@ def run_query(question: str, selected_variant: str | None = None) -> str:
 
     elif intent == "rag":
         context = _rag_context(question)
+
+    elif intent == "hybrid_effectiveness":
+        attacker = classification.get("attacker") or pokemon_name
+        defender = classification.get("defender")
+        mode     = classification.get("mode") or "super_effective"
+        if not attacker:
+            return "Please specify which Pokémon you'd like effectiveness information for."
+        context = get_effectiveness_moves(attacker, defender, mode)
+        if mode in ("full_audit", "stab_only"):
+            return context
+        instruction = (
+            "Summarize the matchup result concisely. "
+            "Highlight the strongest options. "
+            "Do not add information not present in the context."
+        )
+        return generate_answer(f"{instruction}\n\n{question}", context)
 
     elif intent == "hybrid":
         structured = _structured_context_for_hybrid(question, pokemon_name, form_label=form_label, display_name=selected_variant)

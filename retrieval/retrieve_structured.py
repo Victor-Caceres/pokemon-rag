@@ -512,6 +512,208 @@ def get_weaknesses(pokemon_name: str, form_label: str = "base", display_name: st
     return "\n".join(lines)
 
 
+# ── 5. move effectiveness ─────────────────────────────────────────────────────
+
+def _fmt_multiplier(mult: float) -> str:
+    """Format a damage multiplier as a display string like '4×' or '0.5×'."""
+    if mult == int(mult):
+        return f"{int(mult)}×"
+    return f"{mult}×"
+
+
+def get_effectiveness_moves(
+    attacker: str,
+    defender: str | None = None,
+    mode: str = "super_effective",
+) -> str:
+    """
+    Return a formatted string describing how effective the attacker's moves are
+    against the defender, filtered by *mode*.
+
+    Modes:
+      super_effective — moves with final_multiplier > 1
+      not_effective   — moves with 0 < final_multiplier < 1
+      neutral         — moves with final_multiplier == 1
+      immune          — moves with final_multiplier == 0
+      full_audit      — all moves sorted by multiplier desc then name
+      stab_only       — attacker's STAB moves only (defender not required)
+    """
+    conn = _connect()
+    try:
+        with conn.cursor() as cur:
+            # Get attacker's distinct moves and types
+            cur.execute("""
+                SELECT DISTINCT m.name, m.type
+                FROM pokemon_moves pm
+                JOIN moves m ON pm.move_id = m.id
+                JOIN pokemon p ON p.id = pm.pokemon_id
+                WHERE p.name = %s AND p.form_label = 'base'
+                ORDER BY m.name
+            """, (attacker,))
+            move_rows = cur.fetchall()  # list of (name, type)
+
+            cur.execute(
+                "SELECT types, display_name FROM pokemon WHERE name = %s AND form_label = 'base'",
+                (attacker,)
+            )
+            att_row = cur.fetchone()
+            if not att_row:
+                return f"No Pokémon found: '{attacker}'."
+            attacker_types, attacker_display = att_row[0], att_row[1]
+
+            # Get defender types if needed
+            defender_types: list[str] | None = None
+            defender_display: str | None = None
+            if defender and mode != "stab_only":
+                cur.execute(
+                    "SELECT types, display_name FROM pokemon WHERE name = %s AND form_label = 'base'",
+                    (defender,)
+                )
+                def_row = cur.fetchone()
+                if def_row:
+                    defender_types, defender_display = def_row[0], def_row[1]
+
+            # Get type effectiveness rows
+            effectiveness: dict[tuple[str, str], float] = {}
+            if defender_types and move_rows:
+                move_types = list({row[1] for row in move_rows})
+                cur.execute("""
+                    SELECT attacking_type, defending_type, multiplier
+                    FROM type_effectiveness
+                    WHERE attacking_type = ANY(%s)
+                    AND defending_type = ANY(%s)
+                """, (move_types, list(defender_types)))
+                for atk_t, def_t, mult in cur.fetchall():
+                    effectiveness[(atk_t, def_t)] = float(mult)
+    finally:
+        conn.close()
+
+    if not move_rows:
+        return f"No move data found for '{attacker}'."
+
+    attacker_name_d = attacker_display or attacker.replace("-", " ").title()
+
+    # ── stab_only ─────────────────────────────────────────────────────────────
+    if mode == "stab_only":
+        stab = sorted(
+            [(n.replace("-", " ").title(), t) for n, t in move_rows if t in attacker_types],
+            key=lambda x: x[0],
+        )
+        types_d = "/".join(t.capitalize() for t in attacker_types)
+        if not stab:
+            return f"{attacker_name_d}'s STAB moves ({types_d}):\n  (none found)"
+        lines = [f"{attacker_name_d}'s STAB moves ({types_d}):"]
+        for name, mtype in stab:
+            lines.append(f"  - {name} — {mtype.capitalize()}")
+        return "\n".join(lines)
+
+    # ── all other modes require a defender ────────────────────────────────────
+    if not defender:
+        return f"A defender Pokémon is required for mode '{mode}'."
+    if not defender_types:
+        return f"No Pokémon found: '{defender}'."
+
+    defender_name_d = defender_display or defender.replace("-", " ").title()
+    def_types_d = "/".join(t.capitalize() for t in defender_types)
+
+    # Build per-move results
+    seen: set[str] = set()
+    results: list[dict] = []
+    for move_name_raw, move_type in move_rows:
+        move_d = move_name_raw.replace("-", " ").title()
+        if move_d in seen:
+            continue
+        seen.add(move_d)
+
+        final_mult = 1.0
+        for def_t in defender_types:
+            final_mult *= effectiveness.get((move_type, def_t), 1.0)
+
+        results.append({
+            "name": move_d,
+            "move_type": move_type,
+            "multiplier": final_mult,
+            "is_stab": move_type in attacker_types,
+        })
+
+    # Filter by mode
+    if mode == "super_effective":
+        filtered = [r for r in results if r["multiplier"] > 1]
+    elif mode == "not_effective":
+        filtered = [r for r in results if 0 < r["multiplier"] < 1]
+    elif mode == "neutral":
+        filtered = [r for r in results if r["multiplier"] == 1.0]
+    elif mode == "immune":
+        filtered = [r for r in results if r["multiplier"] == 0.0]
+    else:  # full_audit
+        filtered = results
+
+    def move_line(r: dict) -> str:
+        stab = " ⚡STAB" if r["is_stab"] else ""
+        return f"  - {r['name']}{stab} — {r['move_type'].capitalize()}"
+
+    # ── immune ────────────────────────────────────────────────────────────────
+    if mode == "immune":
+        if not filtered:
+            return f"{defender_name_d} is not immune to any of {attacker_name_d}'s moves."
+        lines = [
+            f"{defender_name_d} is immune to these move types, so the following moves have no effect:"
+        ]
+        for r in sorted(filtered, key=lambda x: x["name"]):
+            lines.append(move_line(r))
+        return "\n".join(lines)
+
+    # ── helpers for tiered output ─────────────────────────────────────────────
+    def _tiered_output(header: str, rows: list[dict], ascending: bool = False) -> str:
+        if not rows:
+            return header + "\n  (none)"
+        mults = sorted({r["multiplier"] for r in rows}, reverse=not ascending)
+        lines = [header, ""]
+        for mult in mults:
+            tier = sorted([r for r in rows if r["multiplier"] == mult], key=lambda x: x["name"])
+            lines.append(f"{_fmt_multiplier(mult)} damage:")
+            for r in tier:
+                lines.append(move_line(r))
+            lines.append("")
+        result = "\n".join(lines).rstrip()
+        if any(r["is_stab"] for r in rows):
+            result += "\n\nNote: ⚡STAB moves deal 1.5× bonus damage on top of type effectiveness."
+        return result
+
+    # ── full_audit ────────────────────────────────────────────────────────────
+    if mode == "full_audit":
+        filtered_sorted = sorted(filtered, key=lambda x: (-x["multiplier"], x["name"]))
+        return _tiered_output(
+            f"{attacker_name_d}'s moves against {defender_name_d} ({def_types_d}) — full audit:",
+            filtered_sorted,
+        )
+
+    # ── super_effective ───────────────────────────────────────────────────────
+    if mode == "super_effective":
+        header = f"{attacker_name_d}'s super effective moves against {defender_name_d} ({def_types_d}):"
+        if not filtered:
+            return f"{attacker_name_d} has no super effective moves against {defender_name_d}."
+        return _tiered_output(header, filtered)
+
+    # ── not_effective ─────────────────────────────────────────────────────────
+    if mode == "not_effective":
+        header = f"{attacker_name_d}'s resisted moves against {defender_name_d} ({def_types_d}):"
+        if not filtered:
+            return f"{attacker_name_d} has no resisted moves against {defender_name_d}."
+        return _tiered_output(header, filtered, ascending=True)
+
+    # ── neutral ───────────────────────────────────────────────────────────────
+    if mode == "neutral":
+        if not filtered:
+            return f"{attacker_name_d} has no neutral moves against {defender_name_d}."
+        lines = [f"{attacker_name_d}'s neutral moves against {defender_name_d} ({def_types_d}):"]
+        for r in sorted(filtered, key=lambda x: x["name"]):
+            lines.append(move_line(r))
+        return "\n".join(lines)
+
+    return "Unknown mode."
+
+
 # ── variant resolution ────────────────────────────────────────────────────────
 
 def resolve_variant(display_name: str) -> tuple[str, str] | None:
