@@ -131,6 +131,7 @@ python -m eval.run_eval
 | Database | Supabase (PostgreSQL + pgvector) | Relational data + vector store |
 | Frontend hosting | Vercel | [pokemon-rag.vercel.app](https://pokemon-rag.vercel.app) |
 | Backend hosting | Render | Free tier with cold start handling |
+| Keep-alive | UptimeRobot | Pings /ping every 5 minutes to prevent Render cold starts |
 
 ---
 
@@ -139,7 +140,7 @@ python -m eval.run_eval
 ```
 pokemon-rag/
 ├── api/
-│   └── main.py
+│   └── main.py   # FastAPI app — /ask, /eval, /health, /ping endpoints
 ├── database/
 │   ├── add_pokemon_unique_constraint.sql
 │   ├── apply_schema.py

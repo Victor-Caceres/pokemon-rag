@@ -88,6 +88,11 @@ def health():
     return {"status": "ok"}
 
 
+@app.get("/ping")
+def ping():
+    return {"status": "ok"}
+
+
 _REGIONAL_PREFIXES = ("alolan", "galarian", "hisuian", "paldean")
 # Corresponding PokeAPI suffixes the classifier may accidentally include
 _REGIONAL_SUFFIXES = ("-alola", "-galar", "-hisui", "-paldea")

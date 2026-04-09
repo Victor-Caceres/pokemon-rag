@@ -156,7 +156,7 @@ function VariantPill({ label, onClick }) {
   )
 }
 
-function LoadingBubble({ showSlowLoad }) {
+function LoadingBubble() {
   const dotBase = {
     fontFamily: "'Roboto Mono', monospace",
     fontSize: '20px',
@@ -186,17 +186,6 @@ function LoadingBubble({ showSlowLoad }) {
         }}>
           LOADING DATA...
         </div>
-        {showSlowLoad && (
-          <div style={{
-            fontFamily: "'Roboto Mono', monospace",
-            fontSize: '11px',
-            color: 'var(--text-secondary)',
-            marginTop: '6px',
-            lineHeight: '1.5',
-          }}>
-            Waking up the server — first request may take up to 30 seconds.
-          </div>
-        )}
       </div>
     </div>
   )
@@ -222,11 +211,9 @@ export default function App() {
   const [messages, setMessages] = useState([])
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
-  const [slowLoad, setSlowLoad] = useState(false)
   const [pendingClarification, setPendingClarification] = useState(null)
   const bottomRef = useRef(null)
   const inputRef = useRef(null)
-  const slowLoadTimer = useRef(null)
 
   // Count assistant messages for entry numbering
   const assistantCount = useRef(0)
@@ -235,15 +222,6 @@ export default function App() {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages, loading])
 
-  function startSlowLoadTimer() {
-    slowLoadTimer.current = setTimeout(() => setSlowLoad(true), 3000)
-  }
-
-  function clearSlowLoadTimer() {
-    clearTimeout(slowLoadTimer.current)
-    setSlowLoad(false)
-  }
-
   async function sendMessage() {
     const question = input.trim()
     if (!question || loading) return
@@ -251,7 +229,6 @@ export default function App() {
     setInput('')
     setMessages(prev => [...prev, { role: 'user', text: question }])
     setLoading(true)
-    startSlowLoadTimer()
 
     try {
       const data = await callAsk(question)
@@ -287,7 +264,6 @@ export default function App() {
         isError: true,
       }])
     } finally {
-      clearSlowLoadTimer()
       setLoading(false)
       inputRef.current?.focus()
     }
@@ -301,7 +277,6 @@ export default function App() {
 
     setMessages(prev => [...prev, { role: 'user', text: variant }])
     setLoading(true)
-    startSlowLoadTimer()
 
     try {
       const data = await callAsk(question, variant)
@@ -324,7 +299,6 @@ export default function App() {
         isError: true,
       }])
     } finally {
-      clearSlowLoadTimer()
       setLoading(false)
       inputRef.current?.focus()
     }
@@ -458,7 +432,7 @@ export default function App() {
               )
             })}
 
-            {loading && <LoadingBubble showSlowLoad={slowLoad} />}
+            {loading && <LoadingBubble />}
 
             <div ref={bottomRef} />
           </div>
