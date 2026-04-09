@@ -541,13 +541,14 @@ def get_effectiveness_moves(
     conn = _connect()
     try:
         with conn.cursor() as cur:
-            # Get attacker's distinct moves and types
+            # Get attacker's distinct damaging moves and types (exclude status moves)
             cur.execute("""
                 SELECT DISTINCT m.name, m.type
                 FROM pokemon_moves pm
                 JOIN moves m ON pm.move_id = m.id
                 JOIN pokemon p ON p.id = pm.pokemon_id
                 WHERE p.name = %s AND p.form_label = 'base'
+                  AND m.damage_class != 'status'
                 ORDER BY m.name
             """, (attacker,))
             move_rows = cur.fetchall()  # list of (name, type)

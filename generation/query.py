@@ -198,15 +198,7 @@ def run_query(question: str, selected_variant: str | None = None) -> str:
         mode     = classification.get("mode") or "super_effective"
         if not attacker:
             return "Please specify which Pokémon you'd like effectiveness information for."
-        context = get_effectiveness_moves(attacker, defender, mode)
-        if mode in ("full_audit", "stab_only"):
-            return context
-        instruction = (
-            "Summarize the matchup result concisely. "
-            "Highlight the strongest options. "
-            "Do not add information not present in the context."
-        )
-        return generate_answer(f"{instruction}\n\n{question}", context)
+        return get_effectiveness_moves(attacker, defender, mode)
 
     elif intent == "hybrid":
         structured = _structured_context_for_hybrid(question, pokemon_name, form_label=form_label, display_name=selected_variant)
