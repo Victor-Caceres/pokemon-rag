@@ -2,4 +2,46 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 html, body, #root { height: 100%; margin: 0; }
-body { background: #f9fafb; }
+
+:root {
+  --bg-device: #CC0000;
+  --bg-screen: #1A1A2E;
+  --bg-screen-inner: #0F0F1A;
+  --bg-card: #1E1E35;
+  --accent-yellow: #FFD700;
+  --accent-blue-light: #4FC3F7;
+  --text-screen: #B8F5B0;
+  --text-secondary: #7EC8A0;
+  --text-on-red: #FFFFFF;
+  --text-user: #FFFFFF;
+  --border-screen: #2D2D4E;
+  --bg-input: #12122A;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes dotPulse {
+  0%, 80%, 100% { opacity: 0.2; }
+  40%           { opacity: 1;   }
+}
+
+/* Input placeholder */
+input::placeholder { color: #3D5C50; }
+
+/* Markdown rendered inside assistant bubbles */
+.prose-screen p  { margin: 0 0 0.5em; }
+.prose-screen p:last-child { margin-bottom: 0; }
+.prose-screen ul { margin: 0.25em 0 0.5em 1.25em; padding: 0; list-style: disc; }
+.prose-screen ol { margin: 0.25em 0 0.5em 1.25em; padding: 0; }
+.prose-screen li { margin-bottom: 0.15em; }
+.prose-screen strong { color: var(--accent-yellow); font-weight: 600; }
+.prose-screen code {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.85em;
+  background: rgba(255,255,255,0.06);
+  padding: 1px 5px;
+  border-radius: 3px;
+}
